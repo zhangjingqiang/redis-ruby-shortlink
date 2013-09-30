@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>shortlink app</h1>
+    <hr>
+    <form method="post">
+      <p class="lead"><input class="form-control input-lg" type="text" value="<%= h(params[:url]) %>" name="url" id="url" placeholder="http://"></p>
+      <p><button type="submit" value="shorten" id="submit" class="btn btn-success">shorten</button></p>
+    </form>
+    <hr>
+    <div class="clear"></div>
+    <% if @shortcode %>
+      <div class="alert alert-info">
+        Your shortened URL is:<br>
+        <a href="<%= request.url + @shortcode %>"><%= request.url + @shortcode %></a>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="footer">
+    <p>Powered by <a href="https://www.ruby-lang.org">Ruby</a>(<a href="http://www.sinatrarb.com/">Sinatra</a>) and <a href="http://redis.io/">Redis</a></p>
+  </div>
+</div>
